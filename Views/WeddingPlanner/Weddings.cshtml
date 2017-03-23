@@ -1,0 +1,44 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if(ViewBag.UserName != null){
+    <div>
+        <a href="/logout">Logout</a>
+    </div>
+
+    <div class="row">
+            <div class="col-xs-12 col-lg-2">
+                <p ><b>Welcome,  @ViewBag.UserName<b></p>
+            </div>        
+    </div><br>
+}
+
+<table class="table table-condensed" id="user_transaction">
+    <tr>
+    <th>Title</th>
+    <th>Count</th>
+    <th>Date</th> 
+    <th>Action</th>
+  </tr>
+   @{
+        foreach(var Event in @Model)
+        {
+           
+            <tr>
+                <th><a href="wedding/@Event.id">@Event.Title</a></th>
+                <th>@Event.Count</th> 
+                <th>@Event.CreatedAt.ToString("MMMM dd yyy")</th> 
+                <th><a href="rsvp/@Event.id" >@Event.Action</a></th>
+            </tr>
+                        
+          
+        }
+    }
+
+</table>
+
+<div class="row">
+      <a class="col-xs-12 col-md-2 col-md-offset-10" href="create">Plan a Wedding</a>
+            
+</div><br>

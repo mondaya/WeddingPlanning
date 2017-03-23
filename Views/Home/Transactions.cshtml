@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<WeddingPlanner.Models.Transaction>
+<div>
+        <a href="/logout">Logout</a>
+</div>
+<div class="row">
+        <div class="col-xs-12 col-lg-2">
+            <p ><b>Welcome,  @ViewBag.UserName<b></p>
+        </div>
+        <div class="col-xs-12 col-lg-2">
+            <input type"text"  value=@ViewBag.Balance readonly class="form-control" id="balance"/>
+        </div>
+</div><br>
+ 
+
+<form class="form-inline" action="" method="post" id="transaction_form" >
+  <div class="form-group">
+    <label for="transaction_action">Deposit/Withdraw: </label>
+    <input type="number" class="form-control" id="transaction_action" setp=0.1 name="Amount">
+  </div> 
+  <button type="submit" class="btn btn-success" userId="@ViewBag.UserId" >Submit</button>
+</form><br>
+<div id="error">
+
+</div><br>
+<table class="table table-condensed" id="user_transaction">
+    <tr>
+    <th>Description</th>
+    <th>Amount</th> 
+    <th>Date/Time</th>
+  </tr>
+   @{
+        foreach(var transaction in @Model)
+        {
+           
+            <tr>
+                <th>@transaction.Description</th>
+                <th>@transaction.Amount</th> 
+                <th>@transaction.CreatedAt</th>
+            </tr>
+                        
+          
+        }
+    }
+
+</table>

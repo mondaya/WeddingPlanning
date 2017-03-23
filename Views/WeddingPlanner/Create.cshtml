@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<div>
+        <a href="/logout">Logout</a>
+</div>
+<div class="row">
+        <div class="col-xs-12 col-lg-2">
+            <p ><b>Welcome,  @ViewBag.UserName<b></p>
+        </div>        
+</div><br>
+
+<form action="create" method="post">
+  <div class="form-group" >
+    <label for="CreatorName">Creator Name</label>
+    <input type="text" class="form-control" id="CreatorName" placeholder="Creator Name" value="@ViewBag.UserName" name="CreatorName">
+     <select class="form-control" id="CreatorType" name="CreatorType">
+        <option value=1>Bride</option>
+        <option value=2>Groom</option>              
+    </select>    
+  </div>
+  <div class="form-group">
+    <label for="PartnerName">Partner Name</label>
+    <input type="text" class="form-control" id="PartnerName" placeholder="Partner Name" name="PartnerName" >
+     <select class="form-control" id="PartnerType" name="PartnerType">
+        <option value=1>Bride</option>
+        <option value=2>Groom</option>       
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="CreatedAt">Date:</label>
+    <input type="date" class="form-control" id="CreatedAt" name="CreatedAt">
+  </div>   
+  <button type="submit" class="btn btn-success">Create Wedding</button>
+</form>
