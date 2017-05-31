@@ -38,7 +38,7 @@ namespace WeddingPlanner
         public void Configure(IApplicationBuilder app, ILoggerFactory loggerFactory, IHostingEnvironment env)
         {
 
-            if( env.IsDevelopment() )
+            if( true )
             {
                 loggerFactory.AddConsole();
                 app.UseDeveloperExceptionPage();
